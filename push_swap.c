@@ -12,11 +12,12 @@
 
 #include "push_swap.h"
 
-n_stack	*push_swap(n_stack *stack_A)
+void	*push_swap(n_stack *stack_A, n_stack *stack_B)
 {
-    n_stack *stack_B;
-
-    return (stack_B);
+    if(ft_lstsize(*stack_A) <= 5)
+        stack_A = simple(stack_A, stack_B);
+    else
+        stack_A = radix(stack_A, stack_B);
 }
 
 n_stack *stack_fill(int argc, char **argv, n_stack *stack_A)
@@ -62,6 +63,11 @@ int    main(int argc, char **argv)
         ft_printf("stack_A: %d\n", stack_A->content);
         stack_A = stack_A->next;
     }
-    //stack_B = push_swap(stack_A);
+    stack_B = push_swap(stack_A);
+    while (stack_B != NULL)
+    {
+        ft_printf("%d\n", stack_B->content);
+        stack_B = stack_B->next;
+    }
     return (0);
 }
