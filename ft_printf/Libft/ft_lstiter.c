@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:03:04 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/04/29 17:22:48 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:38:08 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(n_stack *lst, void (*f)(void *))
 {
 	while (lst != NULL)
 	{
@@ -30,11 +30,11 @@ void	print_content(void *content)
 
 int	main(void)
 {
-	t_list *node1 = (t_list *)malloc(sizeof(t_list));
+	n_stack *node1 = (n_stack *)malloc(sizeof(n_stack));
 	node1->content = ft_strdup("Node 1");
 	node1->next = NULL;
 
-	t_list *node2 = (t_list *)malloc(sizeof(t_list));
+	n_stack *node2 = (n_stack *)malloc(sizeof(n_stack));
 	node2->content = ft_strdup("Node 2");
 	node2->next = NULL;
 

@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 12:47:48 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/05/09 16:08:14 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:44:24 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,19 @@ int					ft_toupper(int c);
 
 typedef struct s_list
 {
-	void			*content;
+	int	content;
+    int                 index;
 	struct s_list	*next;
-}					t_list;
+}					n_stack;
 
-void				ft_lstadd_back(t_list **lst, t_list *new);
-void				ft_lstadd_front(t_list **lst, t_list *new);
-void				ft_lstclear(t_list **lst, void (*del)(void *));
-void				ft_lstdelone(t_list *lst, void (*del)(void *));
-void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+void				ft_lstadd_back(n_stack **lst, n_stack *new);
+void				ft_lstadd_front(n_stack **lst, n_stack *new);
+void				ft_lstdelone(n_stack *lst, void (*del)(void *));
+void				ft_lstiter(n_stack *lst, void (*f)(void *));
+n_stack				*ft_lstlast(n_stack *lst);
+n_stack				*ft_lstmap(n_stack *lst, void *(*f)(void *),
 						void (*del)(void *));
-t_list				*ft_lstnew(void *content);
-int					ft_lstsize(t_list *lst);
+n_stack				*ft_lstnew(int content);
+int					ft_lstsize(n_stack *lst);
 
 #endif

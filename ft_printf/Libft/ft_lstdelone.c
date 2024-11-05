@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:46:32 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/04/29 17:22:44 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:43:11 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(n_stack *lst, void (*del)(void *))
 {
 	if (!lst || !del)
 		return ;
-	del(lst->content);
+	//del(lst->content);
 	free(lst);
 }
 /*
@@ -29,14 +29,14 @@ void	free_content(void *content)
 
 int	main(void)
 {
-	t_list	*node1;
-	t_list	*node2;
-	t_list	*current;
+	n_stack	*node1;
+	n_stack	*node2;
+	n_stack	*current;
 
-	node1 = (t_list *)malloc(sizeof(t_list));
+	node1 = (n_stack *)malloc(sizeof(n_stack));
 	node1->content = ft_strdup("Node 1");
 	node1->next = NULL;
-	node2 = (t_list *)malloc(sizeof(t_list));
+	node2 = (n_stack *)malloc(sizeof(n_stack));
 	node2->content = ft_strdup("Node 2");
 	node2->next = NULL;
 	node1->next = node2;

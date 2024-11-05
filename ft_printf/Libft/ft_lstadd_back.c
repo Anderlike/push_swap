@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:31:24 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/04/29 17:22:33 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/05 16:41:38 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(n_stack **lst, n_stack *new)
 {
-	t_list	*temp;
+	n_stack	*temp;
 
 	if (!new)
 		return ;
@@ -31,20 +31,20 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 int	main(void)
 {
-	t_list *head = (t_list *)malloc(sizeof(t_list));
+	n_stack *head = (n_stack *)malloc(sizeof(n_stack));
 	head->content = "Primeiro";
 	head->next = NULL;
 
-	ft_lstadd_back(&head, (t_list *)malloc(sizeof(t_list)));
+	ft_lstadd_back(&head, (n_stack *)malloc(sizeof(n_stack)));
 	head->next->content = "Segundo";
 	head->next->next = NULL;
 
-	ft_lstadd_back(&head, (t_list *)malloc(sizeof(t_list)));
+	ft_lstadd_back(&head, (n_stack *)malloc(sizeof(n_stack)));
 	head->next->next->content = "Terceiro";
 	head->next->next->next = NULL;
 
 	printf("Lista:\n");
-	t_list *current = head;
+	n_stack *current = head;
 	while (current)
 	{
 		printf("%s\n", (char *)(current->content));
@@ -52,7 +52,7 @@ int	main(void)
 	}
 
 	current = head;
-	t_list *next;
+	n_stack *next;
 	while (current)
 	{
 		next = current->next;

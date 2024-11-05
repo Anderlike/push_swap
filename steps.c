@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-int switch(n_stack **stack_A)
+int swap(n_stack **stack_A)
 {
     n_stack *tmp;
     n_stack *next;
-    int value;
-    int index;
+    int tmp_val;
+    int tmp_index;
 
     if(ft_lstsize(*stack_A) < 2)
         return (-1);
@@ -36,21 +36,21 @@ int switch(n_stack **stack_A)
 
 int sa(n_stack **stack_A)
 {
-    if(switch(stack_A) == -1)
+    if(swap(stack_A) == -1)
         return (-1);
     ft_printf("sa\n");
     return (0);
 }
 int sb(n_stack **stack_B)
 {
-    if(switch(stack_B) == -1)
+    if(swap(stack_B) == -1)
         return (-1);
     ft_printf("sb\n");
     return (0);
 }
 int ss(n_stack **stack_A, n_stack **stack_B)
 {
-    if(switch(stack_A) == -1 || switch(stack_B) == -1)
+    if(swap(stack_A) == -1 || swap(stack_B) == -1)
         return (-1);
     ft_printf("ss\n");
     return (0);
@@ -58,26 +58,16 @@ int ss(n_stack **stack_A, n_stack **stack_B)
 int push(n_stack **stack_src, n_stack **stack_dest)
 {
     n_stack *tmp;
-    n_stack *dest;
-    n_stack *src;
 
-    if(ft_lstsize(*stack_src) < 1)
+    if (ft_lstsize(*stack_src) < 1)
         return (-1);
-    dest = *stack_dest;
-    src = *stack_src;
-    tmp = stack_src;
-    stack_src = stack_src->next;
-    if(!dest)
-    {
-        dest = tmp;
-        dest->next = NULL;
-        *stack_dest = dest;
-    }
-    else
-    {
-        tmp->next = dest;
-        dest = tmp;
-    }
+
+    tmp = *stack_src;
+    *stack_src = (*stack_src)->next;
+
+    tmp->next = *stack_dest;     
+    *stack_dest = tmp;           
+
     return (0);
 }
 
@@ -105,10 +95,10 @@ int rotate(n_stack **stack)
     if(ft_lstsize(*stack) < 2)
         return (-1);
     tmp = *stack;
-    lstlast = ft_lstlast(*stack);
+    lstlast = ft_lstlast(tmp);
     *stack = tmp->next;
-    lstlast->next = tmp;
     tmp->next = NULL;
+    lstlast->next = tmp;
     return (0);
 }
 
