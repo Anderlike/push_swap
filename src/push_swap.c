@@ -27,7 +27,7 @@ static void stack_fill(int argc, char **argv, n_stack **stack)
 	int		i;
 
 	i = 0;
-	if (argc == 2)
+	if (argc == 3)
 		args = ft_split(argv[1], ' ');
 	else
 	{
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     n_stack **stack_A;
     n_stack **stack_B;
 
-    if (argc < 2)
+    if (argc < 3)
         return (0);
     ft_check(argc, argv);
     stack_A = (n_stack **)malloc(sizeof(n_stack));

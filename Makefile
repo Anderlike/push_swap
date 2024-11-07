@@ -29,7 +29,7 @@ $(NAME): $(OBJECTS) libftprintf.a
 libftprintf.a:
 	make -C ./lib/ft_printf
 
-%.o: $(SOURCES)
+$(OBJECTS): %.o: $(SOURCES)
 	$(CC) $(CFLAGS) -c $(filter %/$*.c,$(SOURCES)) -o $@
 
 clean: 
