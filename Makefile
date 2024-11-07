@@ -12,8 +12,11 @@
 
 NAME = push_swap.a
 SOURCES = \
-	push_swap.c radix.c steps.c simple.c utils.c utils2.c check.c
-OBJECTS = $(SOURCES:.c=.o)
+	./src/push_swap.c ./algo/radix.c ./algo/simple.c \
+	./utils/utils.c ./utils/utils2.c ./src/check.c \
+	./steps/push.c ./steps/reverse_rotate.c \
+	./steps/rotate.c ./steps/swap.c
+OBJECTS = $(patsubst %.c,%.o,$(notdir $(SOURCES)))
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -21,21 +24,22 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJECTS) libftprintf.a
-	$(AR) -r $@ $(OBJECTS) ./ft_printf/*.o ./ft_printf/libft/*.o
+	$(AR) -r $@ $(OBJECTS) ./lib/ft_printf/*.o ./lib/ft_printf/libft/*.o
 
 libftprintf.a:
-	make -C ./ft_printf
+	make -C ./lib/ft_printf
 
-%.o: %.c
-	$(CC) -c $(CFLAGS) $?
+%.o: $(SOURCES)
+	$(CC) $(CFLAGS) -c $(filter %/$*.c,$(SOURCES)) -o $@
 
 clean: 
 	rm -f $(OBJECTS)
-	make clean -C ./ft_printf
+	make clean -C ./lib/ft_printf
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C ./ft_printf
+	rm -f ./a.out
+	make fclean -C ./lib/ft_printf
 
 re: fclean all
 
