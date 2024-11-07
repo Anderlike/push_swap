@@ -12,9 +12,9 @@
 
 #include "../lib/push_swap.h"
 
-void	ft_error(char *msg)
+void	ft_error()
 {
-	ft_printf("%s", msg);
+	ft_printf("Error");
 	exit(0);
 }
 
@@ -64,11 +64,11 @@ void	ft_check(int argc, char **argv)
 	{
 		tmp = ft_atoi(args[i]);
 		if (!ft_isnum(args[i]))
-			ft_error("Error");
+			ft_error();
 		if (ft_contains(tmp, args, i))
-			ft_error("Error");
+			ft_error();
 		if (tmp < -2147483648 || tmp > 2147483647)
-			ft_error("Error");
+			ft_error();
 		i++;
 	}
 	if (argc == 2)

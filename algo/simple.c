@@ -12,20 +12,25 @@
 
 #include "../lib/push_swap.h"
 
-static int	get_min(n_stack **stack, int val)
+static void sort_3_help(n_stack **stack_A, n_stack	*head, int min, int next_min)
 {
-	n_stack	*head;
-	int		min;
-
-	head = *stack;
-	min = head->content;
-	while (head->next)
+	if (head->content == next_min)
 	{
-		head = head->next;
-		if ((head->content < min) && head->content != val)
-			min = head->content;
+		if (head->next->content == min)
+			sa(stack_A);
+		else
+			rra(stack_A);
 	}
-	return (min);
+	else
+	{
+		if (head->next->content == min)
+			ra(stack_A);
+		else
+		{
+			sa(stack_A);
+			rra(stack_A);
+		}
+	}
 }
 
 static void	sort_3(n_stack **stack_A)
@@ -44,23 +49,8 @@ static void	sort_3(n_stack **stack_A)
 		sa(stack_A);
 		ra(stack_A);
 	}
-	else if (head->content == next_min)
-	{
-		if (head->next->content == min)
-			sa(stack_A);
-		else
-			rra(stack_A);
-	}
 	else
-	{
-		if (head->next->content == min)
-			ra(stack_A);
-		else
-		{
-			sa(stack_A);
-			rra(stack_A);
-		}
-	}
+		sort_3_help(stack_A, head, min, next_min);
 }
 
 static void	sort_4(n_stack **stack_A, n_stack **stack_B)

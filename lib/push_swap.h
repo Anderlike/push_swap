@@ -43,6 +43,6 @@ void	index_stack(n_stack **stack);
 void	free_stack(n_stack **stack);
 void	ft_free(char **str);
 void	ft_check(int argc, char **argv);
-void	ft_error(char *msg);
-
+void	ft_error();
+int	get_min(n_stack **stack, int val);
 #endif
