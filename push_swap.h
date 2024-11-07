@@ -19,8 +19,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-void	push_swap(n_stack *stack_A, n_stack *stack_B);
-n_stack *stack_fill(int argc, char **argv, n_stack *stack_A);
+void	push_swap(n_stack **stack_A, n_stack **stack_B);
 int swap(n_stack **stack_A);
 int sa(n_stack **stack_A);
 int sb(n_stack **stack_B);
@@ -40,5 +39,10 @@ void radix(n_stack **stack_A, n_stack **stack_B);
 void    simple(n_stack **stack_A, n_stack **stack_B);
 int is_sorted(n_stack **stack);
 int get_distance(n_stack **stack, int index);
+void	index_stack(n_stack **stack);
+void	free_stack(n_stack **stack);
+void	ft_free(char **str);
+void	ft_check(int argc, char **argv);
+void	ft_error(char *msg);
 
 #endif

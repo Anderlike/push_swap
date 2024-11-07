@@ -55,25 +55,36 @@ int ss(n_stack **stack_A, n_stack **stack_B)
     ft_printf("ss\n");
     return (0);
 }
-int push(n_stack **stack_src, n_stack **stack_dest)
+int push(n_stack **stack_to, n_stack **stack_from)
 {
-    n_stack *tmp;
+	n_stack	*tmp;
+	n_stack	*head_to;
+	n_stack	*head_from;
 
-    if (ft_lstsize(*stack_src) < 1)
-        return (-1);
-
-    tmp = *stack_src;
-    *stack_src = (*stack_src)->next;
-
-    tmp->next = *stack_dest;     
-    *stack_dest = tmp;           
-
-    return (0);
+	if (ft_lstsize(*stack_from) == 0)
+		return (-1);
+	head_to = *stack_to;
+	head_from = *stack_from;
+	tmp = head_from;
+	head_from = head_from->next;
+	*stack_from = head_from;
+	if (!head_to)
+	{
+		head_to = tmp;
+		head_to->next = NULL;
+		*stack_to = head_to;
+	}
+	else
+	{
+		tmp->next = head_to;
+		*stack_to = tmp;
+	}
+	return (0);
 }
 
 int pa(n_stack **stack_A, n_stack **stack_B)
 {
-    if(push(stack_B, stack_A) == -1)
+    if(push(stack_A, stack_B) == -1)
         return (-1);
     ft_printf("pa\n");
     return (0);
@@ -81,7 +92,7 @@ int pa(n_stack **stack_A, n_stack **stack_B)
 
 int pb(n_stack **stack_A, n_stack **stack_B)
 {
-    if(push(stack_A, stack_B) == -1)
+    if(push(stack_B, stack_A) == -1)
         return (-1);
     ft_printf("pb\n");
     return (0);
@@ -89,17 +100,17 @@ int pb(n_stack **stack_A, n_stack **stack_B)
 
 int rotate(n_stack **stack)
 {
-    n_stack *tmp;
-    n_stack *lstlast;
+	n_stack	*head;
+	n_stack	*tail;
 
-    if(ft_lstsize(*stack) < 2)
-        return (-1);
-    tmp = *stack;
-    lstlast = ft_lstlast(tmp);
-    *stack = tmp->next;
-    tmp->next = NULL;
-    lstlast->next = tmp;
-    return (0);
+	if (ft_lstsize(*stack) < 2)
+		return (-1);
+	head = *stack;
+	tail = ft_lstlast(head);
+	*stack = head->next;
+	head->next = NULL;
+	tail->next = head;
+	return (0);
 }
 
 int ra(n_stack **stack_A)
@@ -120,34 +131,35 @@ int rb(n_stack **stack_B)
 
 int rr(n_stack **stack_A, n_stack **stack_B)
 {
-    if(rotate(stack_A) == -1 || rotate(stack_B) == -1)
+    if((ft_lstsize(*stack_A) < 2) || (ft_lstsize(*stack_B) < 2))
         return (-1);
+    rotate(stack_A);
+    rotate(stack_B);
     ft_printf("rr\n");
     return (0);
 }
 
 int reverse_rotate(n_stack **stack)
 {
-    n_stack *tmp;
-    n_stack *lstlast;
+	n_stack	*head;
+	n_stack	*tail;
 
-    if(ft_lstsize(*stack) < 2)
-        return (-1);
-    lstlast = ft_lstlast(*stack);
-    tmp = *stack;
-    while(tmp)
-    {
-        if(tmp->next->next == NULL)
-        {
-            tmp->next = NULL;
-            break;
-        }
-        tmp = tmp->next;
-    }
-    tmp->next = NULL;
-    lstlast->next = *stack;
-    *stack = lstlast;
-    return (0);
+	if (ft_lstsize(*stack) < 2)
+		return (-1);
+	head = *stack;
+	tail = ft_lstlast(head);
+	while (head)
+	{
+		if (head->next->next == NULL)
+		{
+			 head->next = NULL;
+			 break ;
+		}
+		head = head->next;
+	}
+	tail->next = *stack;
+	*stack = tail;
+	return (0);
 }
 
 int rra(n_stack **stack_A)

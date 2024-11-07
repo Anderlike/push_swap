@@ -12,7 +12,7 @@
 
 NAME = push_swap.a
 SOURCES = \
-	push_swap.c radix.c steps.c simple.c utils.c
+	push_swap.c radix.c steps.c simple.c utils.c utils2.c check.c
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = cc

@@ -6,19 +6,24 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:29:15 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/05 16:37:56 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/07 11:44:43 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-n_stack	*ft_lstlast(n_stack *lst)
+n_stack	*ft_lstlast(n_stack *head)
 {
-	if (!lst)
-		return (0);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	n_stack	*tmp;
+
+	tmp = head;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+		if (tmp->next == NULL)
+			return (tmp);
+	}
+	return (tmp);
 }
 /*
 #include <stdio.h>

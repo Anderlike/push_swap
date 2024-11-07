@@ -6,25 +6,27 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:31:24 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/05 16:41:38 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/07 11:14:36 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(n_stack **lst, n_stack *new)
+void	ft_lstadd_back(n_stack **stack, n_stack *new)
 {
-	n_stack	*temp;
+	n_stack	*n;
 
-	if (!new)
-		return ;
-	if (!*lst)
+	if (*stack)
 	{
-		*lst = new;
-		return ;
+		n = ft_lstlast(*stack);
+		n->next = new;
+		new->next = NULL;
 	}
-	temp = ft_lstlast(*lst);
-	temp->next = new;
+	else
+	{
+		*stack = new;
+		(*stack)->next = NULL;
+	}
 }
 /*
 #include <stdio.h>

@@ -12,52 +12,58 @@
 
 #include "push_swap.h"
 
-void	push_swap(n_stack *stack_A, n_stack *stack_B)
+void	push_swap(n_stack **stack_A, n_stack **stack_B)
 {
-    if(ft_lstsize(stack_A) <= 5)
-        simple(&stack_A, &stack_B);
+    if(ft_lstsize(*stack_A) <= 5)
+        simple(stack_A, stack_B);
     else
-        radix(&stack_A, &stack_B);
+    	radix(stack_A, stack_B);
 }
 
-n_stack *stack_fill(int argc, char **argv, n_stack *stack_A)
+static void stack_fill(int argc, char **argv, n_stack **stack)
 {
-    int i;
-    n_stack *new;
-    n_stack *tmp;
+	n_stack	*new;
+	char	**args;
+	int		i;
 
-    i = 1;
-    while (i < argc)
-    {
-        new = malloc(sizeof(n_stack));
-        new->content = ft_atoi(argv[i]);
-        new->index = i;
-        new->next = NULL;
-        if (stack_A == NULL)
-            stack_A = new;
-        else
-        {
-            tmp = stack_A;
-            while (tmp->next != NULL)
-                tmp = tmp->next;
-            tmp->next = new;
-        }
-        i++;
-    }
-    return (stack_A);
+	i = 0;
+	if (argc == 2)
+		args = ft_split(argv[1], ' ');
+	else
+	{
+		i = 1;
+		args = argv;
+	}
+	while (args[i])
+	{
+		new = ft_lstnew(ft_atoi(args[i]));
+		ft_lstadd_back(stack, new);
+		i++;
+	}
+	index_stack(stack);
+	if (argc == 2)
+		ft_free(args);
 }
 
 int main(int argc, char **argv)
 {
-    n_stack *stack_A;
-    n_stack *stack_B;
+    n_stack **stack_A;
+    n_stack **stack_B;
 
     if (argc < 2)
         return (0);
-
-    stack_A = NULL;
-    stack_B = NULL;
-    stack_A = stack_fill(argc, argv, stack_A);
+    ft_check(argc, argv);
+    stack_A = (n_stack **)malloc(sizeof(n_stack));
+    stack_B = (n_stack **)malloc(sizeof(n_stack));
+    stack_fill(argc, argv, stack_A);
+    if (is_sorted(stack_A))
+	{
+		free_stack(stack_A);
+		free_stack(stack_B);
+		return (0);
+	}
     push_swap(stack_A, stack_B);
+    free_stack(stack_A);
+	free_stack(stack_B);
     return (0);
 }

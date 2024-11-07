@@ -6,19 +6,16 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:49:17 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/05 16:38:21 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:50:52 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(n_stack **lst, n_stack *new)
+void	ft_lstadd_front(n_stack **stack, n_stack *new)
 {
-	if (lst && new)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
+	new->next = *stack;
+	*stack = new;
 }
 /*
 #include <stdio.h>

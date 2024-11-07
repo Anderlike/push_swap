@@ -6,7 +6,7 @@
 #    By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/09 11:29:01 by aaleixo-          #+#    #+#              #
-#    Updated: 2024/11/05 16:35:06 by aaleixo-         ###   ########.fr        #
+#    Updated: 2024/11/07 15:23:01 by aaleixo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,10 @@ libft.a:
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $<
+
+clean: 
+	rm -f $(OBJECTS)
+	make clean -C ./Libft
 
 fclean: clean
 	rm -f $(NAME)

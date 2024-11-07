@@ -6,22 +6,22 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:24:38 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/05 16:41:38 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/07 09:59:24 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(n_stack *lst)
+int	ft_lstsize(n_stack *head)
 {
-	unsigned int	i;
+	size_t	i;
+	n_stack	*tmp;
 
-	i = 1;
-	if (!lst)
-		return (0);
-	while (lst->next != NULL)
+	tmp = head;
+	i = 0;
+	while (tmp)
 	{
-		lst = lst->next;
+		tmp = tmp->next;
 		i++;
 	}
 	return (i);
