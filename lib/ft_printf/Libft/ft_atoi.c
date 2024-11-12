@@ -6,17 +6,17 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:10:40 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/04/29 14:33:02 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:11:34 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long long	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	number;
-	int	sinal;
+	int			i;
+	long long	number;
+	int			sinal;
 
 	i = 0;
 	number = 0;

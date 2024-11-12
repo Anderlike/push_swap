@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 12:47:48 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/12 11:02:46 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:11:47 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <strings.h>
 # include <unistd.h>
 
-int					ft_atoi(const char *nptr);
+long long			ft_atoi(const char *nptr);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t nmemb, size_t size);
 int					ft_isalnum(int c);

@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:19:16 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/12 10:47:51 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:22:35 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_check(int argc, char **argv)
 			ft_error();
 		if (ft_contains(tmp, args, i))
 			ft_error();
-		if (tmp < -2147483648 || tmp > 2147483647)
+		if (tmp < INT_MIN || tmp > INT_MAX)
 			ft_error();
 		i++;
 	}

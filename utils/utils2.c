@@ -6,21 +6,23 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 09:56:19 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/12 10:57:10 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:07:28 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
 
+// FIX FT FREE IT NO WORK >:C
 void	ft_free(char **str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != NULL)
+	{
+		free(str[i]);
 		i++;
-	while (i >= 0)
-		free(str[i--]);
+	}
 }
 
 int	get_min(t_list **stack, int val)

@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:59:16 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/12 11:01:31 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:03:03 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "ft_printf/Libft/libft.h"
 # include "ft_printf/ft_printf.h"
 # include <fcntl.h>
+# include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
 
