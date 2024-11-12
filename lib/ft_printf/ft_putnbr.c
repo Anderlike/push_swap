@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 16:25:26 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/06/03 19:40:02 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:48:06 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static void	ft_write(char *s, long k, int *counter)
 
 void	ft_putnbr(long long n, char *base, int *counter)
 {
-	int	k;
-	int	temp;
-	int	basel;
+	int		k;
+	int		temp;
+	int		basel;
 	char	s[22];
 
 	basel = ft_strlen(base);

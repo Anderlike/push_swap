@@ -6,16 +6,16 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:24:38 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/07 09:59:24 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:54:30 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(n_stack *head)
+int	ft_lstsize(t_list *head)
 {
 	size_t	i;
-	n_stack	*tmp;
+	t_list	*tmp;
 
 	tmp = head;
 	i = 0;
@@ -31,11 +31,11 @@ int	ft_lstsize(n_stack *head)
 
 int	main(void)
 {
-	n_stack *node1 = (n_stack *)malloc(sizeof(n_stack));
+	t_list *node1 = (t_list *)malloc(sizeof(t_list));
 	node1->next = NULL;
-	n_stack *node2 = (n_stack *)malloc(sizeof(n_stack));
+	t_list *node2 = (t_list *)malloc(sizeof(t_list));
 	node2->next = NULL;
-	n_stack *node3 = (n_stack *)malloc(sizeof(n_stack));
+	t_list *node3 = (t_list *)malloc(sizeof(t_list));
 	node2->next = NULL;
 
 	node1->next = node2;

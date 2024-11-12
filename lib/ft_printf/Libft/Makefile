@@ -6,7 +6,7 @@
 #    By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/06 13:42:33 by aaleixo-          #+#    #+#              #
-#    Updated: 2024/11/05 16:45:16 by aaleixo-         ###   ########.fr        #
+#    Updated: 2024/11/12 11:03:06 by aaleixo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ SOURCES = \
 	ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
 	ft_putendl_fd.c ft_putnbr_fd.c
 BSOURCES = \
-	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-	ft_lstdelone.c
+	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c
 OBJECTS = $(SOURCES:.c=.o)
 BOBJECTS = $(BSOURCES:.c=.o)
 

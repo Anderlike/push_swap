@@ -6,16 +6,16 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 15:41:46 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/07 15:41:46 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 11:00:18 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
 
-int rotate(n_stack **stack)
+int	rotate(t_list **stack)
 {
-	n_stack	*head;
-	n_stack	*tail;
+	t_list	*head;
+	t_list	*tail;
 
 	if (ft_lstsize(*stack) < 2)
 		return (-1);
@@ -27,28 +27,28 @@ int rotate(n_stack **stack)
 	return (0);
 }
 
-int ra(n_stack **stack_A)
+int	ra(t_list **stack_a)
 {
-    if(rotate(stack_A) == -1)
-        return (-1);
-    ft_printf("ra\n");
-    return (0);
+	if (rotate(stack_a) == -1)
+		return (-1);
+	ft_printf("ra\n");
+	return (0);
 }
 
-int rb(n_stack **stack_B)
+int	rb(t_list **stack_b)
 {
-    if(rotate(stack_B) == -1)
-        return (-1);
-    ft_printf("rb\n");
-    return (0);
+	if (rotate(stack_b) == -1)
+		return (-1);
+	ft_printf("rb\n");
+	return (0);
 }
 
-int rr(n_stack **stack_A, n_stack **stack_B)
+int	rr(t_list **stack_a, t_list **stack_b)
 {
-    if((ft_lstsize(*stack_A) < 2) || (ft_lstsize(*stack_B) < 2))
-        return (-1);
-    rotate(stack_A);
-    rotate(stack_B);
-    ft_printf("rr\n");
-    return (0);
+	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
+		return (-1);
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_printf("rr\n");
+	return (0);
 }

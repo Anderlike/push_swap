@@ -6,13 +6,13 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:19:16 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/07 10:19:16 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:47:51 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
 
-void	ft_error()
+void	ft_error(void)
 {
 	ft_printf("Error");
 	exit(0);
@@ -50,7 +50,7 @@ void	ft_check(int argc, char **argv)
 {
 	int		i;
 	long	tmp;
-	char	**args;	
+	char	**args;
 
 	i = 0;
 	if (argc == 2)

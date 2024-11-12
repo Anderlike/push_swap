@@ -6,17 +6,17 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 15:40:15 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/07 15:40:15 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:59:48 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
 
-int push(n_stack **stack_to, n_stack **stack_from)
+int	push(t_list **stack_to, t_list **stack_from)
 {
-	n_stack	*tmp;
-	n_stack	*head_to;
-	n_stack	*head_from;
+	t_list	*tmp;
+	t_list	*head_to;
+	t_list	*head_from;
 
 	if (ft_lstsize(*stack_from) == 0)
 		return (-1);
@@ -39,18 +39,18 @@ int push(n_stack **stack_to, n_stack **stack_from)
 	return (0);
 }
 
-int pa(n_stack **stack_A, n_stack **stack_B)
+int	pa(t_list **stack_a, t_list **stack_b)
 {
-    if(push(stack_A, stack_B) == -1)
-        return (-1);
-    ft_printf("pa\n");
-    return (0);
+	if (push(stack_a, stack_b) == -1)
+		return (-1);
+	ft_printf("pa\n");
+	return (0);
 }
 
-int pb(n_stack **stack_A, n_stack **stack_B)
+int	pb(t_list **stack_a, t_list **stack_b)
 {
-    if(push(stack_B, stack_A) == -1)
-        return (-1);
-    ft_printf("pb\n");
-    return (0);
+	if (push(stack_b, stack_a) == -1)
+		return (-1);
+	ft_printf("pb\n");
+	return (0);
 }

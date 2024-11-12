@@ -6,15 +6,15 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:31:24 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/07 11:14:36 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:55:49 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(n_stack **stack, n_stack *new)
+void	ft_lstadd_back(t_list **stack, t_list *new)
 {
-	n_stack	*n;
+	t_list	*n;
 
 	if (*stack)
 	{
@@ -33,20 +33,20 @@ void	ft_lstadd_back(n_stack **stack, n_stack *new)
 
 int	main(void)
 {
-	n_stack *head = (n_stack *)malloc(sizeof(n_stack));
+	t_list *head = (t_list *)malloc(sizeof(t_list));
 	head->content = "Primeiro";
 	head->next = NULL;
 
-	ft_lstadd_back(&head, (n_stack *)malloc(sizeof(n_stack)));
+	ft_lstadd_back(&head, (t_list *)malloc(sizeof(t_list)));
 	head->next->content = "Segundo";
 	head->next->next = NULL;
 
-	ft_lstadd_back(&head, (n_stack *)malloc(sizeof(n_stack)));
+	ft_lstadd_back(&head, (t_list *)malloc(sizeof(t_list)));
 	head->next->next->content = "Terceiro";
 	head->next->next->next = NULL;
 
 	printf("Lista:\n");
-	n_stack *current = head;
+	t_list *current = head;
 	while (current)
 	{
 		printf("%s\n", (char *)(current->content));
@@ -54,7 +54,7 @@ int	main(void)
 	}
 
 	current = head;
-	n_stack *next;
+	t_list *next;
 	while (current)
 	{
 		next = current->next;

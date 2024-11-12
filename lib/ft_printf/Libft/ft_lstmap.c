@@ -6,23 +6,23 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:04:58 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/05 16:37:50 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:54:45 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-n_stack	*ft_lstmap(n_stack *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	n_stack	*new_list;
-	n_stack	*last;
-	n_stack	*new_node;
+	t_list	*new_list;
+	t_list	*last;
+	t_list	*new_node;
 
 	new_list = NULL;
 	last = NULL;
 	while (lst != NULL)
 	{
-		new_node = (n_stack *)malloc(sizeof(n_stack));
+		new_node = (t_list *)malloc(sizeof(t_list));
 		if (!new_node)
 		{
 			del(new_list);
@@ -61,8 +61,8 @@ void	free_int(void *num)
 
 int	main(void)
 {
-	n_stack *head = malloc(sizeof(n_stack));
-	n_stack *current = head;
+	t_list *head = malloc(sizeof(t_list));
+	t_list *current = head;
 	unsigned int i = 0;
 	int nums[] = {1, 2, 3, 4, 5};
 	while (i < 5)
@@ -71,7 +71,7 @@ int	main(void)
 		*(int *)(current->content) = nums[i];
 		if (i < 4)
 		{
-			current->next = malloc(sizeof(n_stack));
+			current->next = malloc(sizeof(t_list));
 			current = current->next;
 		}
 		else
@@ -79,14 +79,14 @@ int	main(void)
 		i++;
 	}
 
-	n_stack *new_list = ft_lstmap(head, &add_one, &free_int);
+	t_list *new_list = ft_lstmap(head, &add_one, &free_int);
 
 	printf("lista: ");
 	current = head;
 	while (current)
 	{
 		printf("%d ", *(int *)(current->content));
-		n_stack *next = current->next;
+		t_list *next = current->next;
 		free(current->content);
 		free(current);
 		current = next;
@@ -98,7 +98,7 @@ int	main(void)
 	while (current)
 	{
 		printf("%d ", *(int *)(current->content));
-		n_stack *next = current->next;
+		t_list *next = current->next;
 		free(current->content);
 		free(current);
 		current = next;

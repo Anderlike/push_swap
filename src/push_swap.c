@@ -6,28 +6,28 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:47:17 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/10/25 14:47:17 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:56:31 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
 
-void	push_swap(n_stack **stack_A, n_stack **stack_B)
+void	push_swap(t_list **stack_a, t_list **stack_b)
 {
-    if(ft_lstsize(*stack_A) <= 5)
-        simple(stack_A, stack_B);
-    else
-    	radix(stack_A, stack_B);
+	if (ft_lstsize(*stack_a) <= 5)
+		simple(stack_a, stack_b);
+	else
+		radix(stack_a, stack_b);
 }
 
-static void stack_fill(int argc, char **argv, n_stack **stack)
+static void	stack_fill(int argc, char **argv, t_list **stack)
 {
-	n_stack	*new;
+	t_list	*new;
 	char	**args;
 	int		i;
 
 	i = 0;
-	if (argc == 3)
+	if (argc == 2)
 		args = ft_split(argv[1], ' ');
 	else
 	{
@@ -45,25 +45,25 @@ static void stack_fill(int argc, char **argv, n_stack **stack)
 		ft_free(args);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    n_stack **stack_A;
-    n_stack **stack_B;
+	t_list	**stack_a;
+	t_list	**stack_b;
 
-    if (argc < 3)
-        return (0);
-    ft_check(argc, argv);
-    stack_A = (n_stack **)malloc(sizeof(n_stack));
-    stack_B = (n_stack **)malloc(sizeof(n_stack));
-    stack_fill(argc, argv, stack_A);
-    if (is_sorted(stack_A))
+	if (argc < 3)
+		return (0);
+	ft_check(argc, argv);
+	stack_a = (t_list **)malloc(sizeof(t_list));
+	stack_b = (t_list **)malloc(sizeof(t_list));
+	stack_fill(argc, argv, stack_a);
+	if (is_sorted(stack_a))
 	{
-		free_stack(stack_A);
-		free_stack(stack_B);
+		free_stack(stack_a);
+		free_stack(stack_b);
 		return (0);
 	}
-    push_swap(stack_A, stack_B);
-    free_stack(stack_A);
-	free_stack(stack_B);
-    return (0);
+	push_swap(stack_a, stack_b);
+	free_stack(stack_a);
+	free_stack(stack_b);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 09:56:19 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/07 09:56:19 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:57:10 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	ft_free(char **str)
 		free(str[i--]);
 }
 
-int	get_min(n_stack **stack, int val)
+int	get_min(t_list **stack, int val)
 {
-	n_stack	*head;
+	t_list	*head;
 	int		min;
 
 	head = *stack;

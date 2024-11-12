@@ -6,15 +6,15 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:29:15 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/07 11:44:43 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:54:50 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-n_stack	*ft_lstlast(n_stack *head)
+t_list	*ft_lstlast(t_list *head)
 {
-	n_stack	*tmp;
+	t_list	*tmp;
 
 	tmp = head;
 	while (tmp->next)
@@ -30,18 +30,18 @@ n_stack	*ft_lstlast(n_stack *head)
 
 int	main(void)
 {
-	n_stack *node1 = (n_stack *)malloc(sizeof(n_stack));
+	t_list *node1 = (t_list *)malloc(sizeof(t_list));
 	node1->content = ft_strdup("Node 1");
 	node1->next = NULL;
 
-	n_stack *node2 = (n_stack *)malloc(sizeof(n_stack));
+	t_list *node2 = (t_list *)malloc(sizeof(t_list));
 	node2->content = ft_strdup("Node 2");
 	node2->next = NULL;
 
 	node1->next = node2;
 
 	printf("Lista:\n");
-	n_stack *last_node = ft_lstlast(node1);
+	t_list *last_node = ft_lstlast(node1);
 	printf("%s\n", (char *)last_node->content);
 
 	free(node1->content);

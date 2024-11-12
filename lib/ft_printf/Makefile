@@ -6,41 +6,32 @@
 #    By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/09 11:29:01 by aaleixo-          #+#    #+#              #
-#    Updated: 2024/11/07 15:23:01 by aaleixo-         ###   ########.fr        #
+#    Updated: 2024/11/11 16:30:47 by aaleixo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-SOURCES = \
-	ft_printf.c ft_putnbr.c ft_ptr.c
-OBJECTS = $(SOURCES:.c=.o)
-
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g -O0
+SRCS = ft_printf.c ft_putnbr.c ft_ptr.c 
+OBJS = $(SRCS:.c=.o)
+
+$(NAME): $(OBJS)
+	make -C ./Libft/
+	make bonus -C  ./Libft
+	ar rsc $(NAME) $(OBJS)  Libft/*.o
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) libft.a
-	$(AR) -r $@ $(OBJECTS)
-
-libft.a:
-	make -C ./Libft
-	make bonus -C ./Libft
-
 %.o: %.c
-	$(CC) -c $(CFLAGS) $<
+	$(CC) $(CFLAGS) -c $< -o $@
 
-clean: 
-	rm -f $(OBJECTS)
-	make clean -C ./Libft
+clean:
+	@rm -f $(OBJS)
+	make -C ./Libft clean
 
 fclean: clean
-	rm -f $(NAME)
-	make fclean -C ./Libft
-
-cleanlib:
-	make clean -C ./Libft
+	@rm -f $(NAME)
+	make -C ./Libft fclean
 
 re: fclean all
-
-.PHONY: all libft.a clean fclean re

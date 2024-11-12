@@ -6,43 +6,43 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:59:16 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/10/25 14:59:16 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/12 11:01:31 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "ft_printf/Libft/libft.h"
-#include "ft_printf/ft_printf.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <fcntl.h>
+# include "ft_printf/Libft/libft.h"
+# include "ft_printf/ft_printf.h"
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
 
-void	push_swap(n_stack **stack_A, n_stack **stack_B);
-int swap(n_stack **stack_A);
-int sa(n_stack **stack_A);
-int sb(n_stack **stack_B);
-int ss(n_stack **stack_A, n_stack **stack_B);
-int push(n_stack **stack_src, n_stack **stack_dest);
-int pa(n_stack **stack_A, n_stack **stack_B);
-int pb(n_stack **stack_A, n_stack **stack_B);
-int rotate(n_stack **stack);
-int ra(n_stack **stack_A);
-int rb(n_stack **stack_B);
-int rr(n_stack **stack_A, n_stack **stack_B);
-int reverse_rotate(n_stack **stack);
-int rra(n_stack **stack_A);
-int rrb(n_stack **stack_B);
-int rrr(n_stack **stack_A, n_stack **stack_B);
-void radix(n_stack **stack_A, n_stack **stack_B);
-void    simple(n_stack **stack_A, n_stack **stack_B);
-int is_sorted(n_stack **stack);
-int get_distance(n_stack **stack, int index);
-void	index_stack(n_stack **stack);
-void	free_stack(n_stack **stack);
+void	push_swap(t_list **stack_a, t_list **stack_b);
+int		swap(t_list **stack_a);
+int		sa(t_list **stack_a);
+int		sb(t_list **stack_b);
+int		ss(t_list **stack_a, t_list **stack_b);
+int		push(t_list **stack_src, t_list **stack_dest);
+int		pa(t_list **stack_a, t_list **stack_b);
+int		pb(t_list **stack_a, t_list **stack_b);
+int		rotate(t_list **stack);
+int		ra(t_list **stack_a);
+int		rb(t_list **stack_b);
+int		rr(t_list **stack_a, t_list **stack_b);
+int		reverse_rotate(t_list **stack);
+int		rra(t_list **stack_a);
+int		rrb(t_list **stack_b);
+int		rrr(t_list **stack_a, t_list **stack_b);
+void	radix(t_list **stack_a, t_list **stack_b);
+void	simple(t_list **stack_a, t_list **stack_b);
+int		is_sorted(t_list **stack);
+int		get_distance(t_list **stack, int index);
+void	index_stack(t_list **stack);
+void	free_stack(t_list **stack);
 void	ft_free(char **str);
 void	ft_check(int argc, char **argv);
-void	ft_error();
-int	get_min(n_stack **stack, int val);
+void	ft_error(void);
+int		get_min(t_list **stack, int val);
 #endif
