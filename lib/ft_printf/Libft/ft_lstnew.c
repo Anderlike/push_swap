@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 15:47:31 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/12 10:54:39 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:22:47 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ t_list	*ft_lstnew(int value)
 {
 	t_list	*new;
 
-	new = (t_list *)malloc(sizeof(t_list));
+	new = malloc(sizeof(t_list));
 	if (!new)
 		return (NULL);
 	new->content = value;
+	new->index = 0;
 	new->next = NULL;
 	return (new);
 }

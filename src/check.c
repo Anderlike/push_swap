@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:19:16 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/12 13:22:35 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:47:33 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(void)
 {
-	ft_printf("Error");
+	ft_printf("Error\n");
 	exit(0);
 }
 

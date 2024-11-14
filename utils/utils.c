@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:58:07 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/12 10:57:02 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:20:18 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ static t_list	*get_next_min(t_list **stack)
 
 	min = NULL;
 	has_min = 0;
+	if (!stack || !*stack)
+		return (NULL);
 	head = *stack;
 	if (head)
 	{
@@ -87,6 +89,8 @@ void	free_stack(t_list **stack)
 	t_list	*head;
 	t_list	*tmp;
 
+	if (!stack || !*stack)
+		return ;
 	head = *stack;
 	while (head)
 	{
@@ -94,5 +98,5 @@ void	free_stack(t_list **stack)
 		head = head->next;
 		free(tmp);
 	}
-	free(stack);
+	*stack = NULL;
 }

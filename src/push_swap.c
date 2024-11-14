@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:47:17 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/12 17:02:59 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:48:02 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,23 @@ static void	stack_fill(int argc, char **argv, t_list **stack)
 
 int	main(int argc, char **argv)
 {
-	t_list	**stack_a;
-	t_list	**stack_b;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
 	if (argc < 2)
 		return (0);
 	ft_check(argc, argv);
-	stack_a = (t_list **)malloc(sizeof(t_list));
-	stack_b = (t_list **)malloc(sizeof(t_list));
-	stack_fill(argc, argv, stack_a);
-	if (is_sorted(stack_a))
+	stack_a = NULL;
+	stack_b = NULL;
+	stack_fill(argc, argv, &stack_a);
+	if (is_sorted(&stack_a))
 	{
-		free_stack(stack_a);
-		free_stack(stack_b);
+		free_stack(&stack_a);
+		free_stack(&stack_b);
 		return (0);
 	}
-	push_swap(stack_a, stack_b);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	push_swap(&stack_a, &stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }
