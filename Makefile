@@ -20,16 +20,19 @@ OBJECTS = $(SOURCES:.c=.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+
+LIBFTPRINTF = ./lib/ft_printf/libftprintf.a
+
 all: $(NAME)
+
+$(NAME): $(OBJECTS) $(LIBFTPRINTF)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) -L./lib/ft_printf -lftprintf
+
+$(LIBFTPRINTF):
+	make -C ./lib/ft_printf
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-
-$(NAME): $(OBJECTS) libftprintf.a
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) -L./lib/ft_printf -lftprintf
-
-libftprintf.a:
-	make -C ./lib/ft_printf
 
 clean:
 	rm -f $(OBJECTS)
