@@ -25,11 +25,11 @@ int	swap(t_list **stack_a)
 	next = tmp->next;
 	if (!tmp && !next)
 		return (-1);
-	tmp_val = tmp->content;
+	tmp_val = tmp->value;
 	tmp_index = tmp->index;
-	tmp->content = next->content;
+	tmp->value = next->value;
 	tmp->index = next->index;
-	next->content = tmp_val;
+	next->value = tmp_val;
 	next->index = tmp_index;
 	return (0);
 }

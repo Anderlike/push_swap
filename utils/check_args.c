@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 10:19:16 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/14 16:47:33 by aaleixo-         ###   ########.fr       */
+/*   Created: 2024/11/05 17:58:07 by aaleixo-          #+#    #+#             */
+/*   Updated: 2024/11/14 15:20:18 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
-
-void	ft_error(void)
-{
-	ft_printf("Error\n");
-	exit(0);
-}
 
 static int	ft_contains(int num, char **argv, int i)
 {
@@ -46,11 +40,11 @@ static int	ft_isnum(char *num)
 	return (1);
 }
 
-void	ft_check(int argc, char **argv)
+void	ft_check_args(int argc, char **argv)
 {
 	int		i;
 	long	tmp;
-	char	**args;
+	char	**args;	
 
 	i = 0;
 	if (argc == 2)
@@ -67,7 +61,7 @@ void	ft_check(int argc, char **argv)
 			ft_error();
 		if (ft_contains(tmp, args, i))
 			ft_error();
-		if (tmp < INT_MIN || tmp > INT_MAX)
+		if (tmp < -2147483648 || tmp > 2147483647)
 			ft_error();
 		i++;
 	}

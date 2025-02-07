@@ -12,31 +12,53 @@
 
 #include "../lib/push_swap.h"
 
-void	ft_free(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != NULL)
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-}
-
-int	get_min(t_list **stack, int val)
+static t_list	*get_next_min(t_list **stack)
 {
 	t_list	*head;
-	int		min;
+	t_list	*min;
+	int		has_min;
 
+	min = NULL;
+	has_min = 0;
 	head = *stack;
-	min = head->content;
-	while (head->next)
+	if (head)
 	{
-		head = head->next;
-		if ((head->content < min) && head->content != val)
-			min = head->content;
+		while (head)
+		{
+			if ((head->index == -1) && (!has_min || head->value < min->value))
+			{
+				min = head;
+				has_min = 1;
+			}
+			head = head->next;
+		}
 	}
 	return (min);
+}
+
+void	index_stack(t_list **stack)
+{
+	t_list	*head;
+	int		index;
+
+	index = 0;
+	head = get_next_min(stack);
+	while (head)
+	{
+		head->index = index++;
+		head = get_next_min(stack);
+	}
+}
+
+void	printList(t_list *head)
+{
+	t_list	*tmp;
+
+	tmp = head;
+	while (tmp != NULL)
+	{
+		ft_putnbr_fd(tmp->value, 1);
+		ft_putendl_fd("", 1);
+		tmp = tmp->next;
+	}
 }

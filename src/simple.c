@@ -12,18 +12,34 @@
 
 #include "../lib/push_swap.h"
 
+static int	get_min(t_list **stack, int val)
+{
+	t_list	*head;
+	int		min;
+
+	head = *stack;
+	min = head->index;
+	while (head->next)
+	{
+		head = head->next;
+		if ((head->index < min) && head->index != val)
+			min = head->index;
+	}
+	return (min);
+}
+
 static void	sort_3_help(t_list **stack_a, t_list *head, int min, int next_min)
 {
-	if (head->content == next_min)
+	if (head->value == next_min)
 	{
-		if (head->next->content == min)
+		if (head->next->value == min)
 			sa(stack_a);
 		else
 			rra(stack_a);
 	}
 	else
 	{
-		if (head->next->content == min)
+		if (head->next->value == min)
 			ra(stack_a);
 		else
 		{
@@ -44,7 +60,7 @@ static void	sort_3(t_list **stack_a)
 	next_min = get_min(stack_a, min);
 	if (is_sorted(stack_a))
 		return ;
-	if (head->content == min && head->next->content != next_min)
+	if (head->value == min && head->next->value != next_min)
 	{
 		sa(stack_a);
 		ra(stack_a);
@@ -76,7 +92,7 @@ static void	sort_4(t_list **stack_a, t_list **stack_b)
 	pa(stack_a, stack_b);
 }
 
-static void	sort_5(t_list **stack_a, t_list **stack_b)
+void	sort_5(t_list **stack_a, t_list **stack_b)
 {
 	int	distance;
 
@@ -111,7 +127,7 @@ void	simple(t_list **stack_a, t_list **stack_b)
 		return ;
 	size = ft_lstsize(*stack_a);
 	if (size == 2)
-		ra(stack_a);
+		sa(stack_a);
 	else if (size == 3)
 		sort_3(stack_a);
 	else if (size == 4)

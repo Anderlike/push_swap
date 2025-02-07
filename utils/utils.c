@@ -5,12 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 17:58:07 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/14 15:20:18 by aaleixo-         ###   ########.fr       */
+/*   Created: 2025/02/07 13:10:29 by aaleixo-          #+#    #+#             */
+/*   Updated: 2025/02/07 13:10:29 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
+
+void	ft_error()
+{
+	ft_printf("Error\n");
+	exit(0);
+}
+
+void	ft_free(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	while (i >= 0)
+		free(str[i--]);
+}
 
 int	is_sorted(t_list **stack)
 {
@@ -19,14 +36,14 @@ int	is_sorted(t_list **stack)
 	head = *stack;
 	while (head && head->next)
 	{
-		if (head->content > head->next->content)
+		if (head->value > head->next->value)
 			return (0);
 		head = head->next;
 	}
 	return (1);
 }
 
-int	get_distance(t_list **stack, int min)
+int	get_distance(t_list **stack, int index)
 {
 	t_list	*head;
 	int		distance;
@@ -35,7 +52,7 @@ int	get_distance(t_list **stack, int min)
 	head = *stack;
 	while (head)
 	{
-		if (head->content == min)
+		if (head->index == index)
 			break ;
 		distance++;
 		head = head->next;
@@ -43,44 +60,24 @@ int	get_distance(t_list **stack, int min)
 	return (distance);
 }
 
-static t_list	*get_next_min(t_list **stack)
+void	make_top(t_list **stack, int distance)
 {
 	t_list	*head;
-	t_list	*min;
-	int		has_min;
+	int		tmp;
 
-	min = NULL;
-	has_min = 0;
-	if (!stack || !*stack)
-		return (NULL);
+	if (distance == 0)
+		return ;
 	head = *stack;
-	if (head)
+	tmp = ft_lstsize(head) - distance;
+	if (distance <= (ft_lstsize(head) / 2))
 	{
-		while (head)
-		{
-			if ((head->index == -1) && (!has_min
-					|| head->content < min->content))
-			{
-				min = head;
-				has_min = 1;
-			}
-			head = head->next;
-		}
+		while (distance-- > 0)
+			ra(stack);
 	}
-	return (min);
-}
-
-void	index_stack(t_list **stack)
-{
-	t_list	*head;
-	int		index;
-
-	index = 0;
-	head = get_next_min(stack);
-	while (head)
+	else
 	{
-		head->index = index++;
-		head = get_next_min(stack);
+		while (tmp-- > 0)
+			rra(stack);
 	}
 }
 
@@ -89,8 +86,6 @@ void	free_stack(t_list **stack)
 	t_list	*head;
 	t_list	*tmp;
 
-	if (!stack || !*stack)
-		return ;
 	head = *stack;
 	while (head)
 	{
@@ -98,5 +93,5 @@ void	free_stack(t_list **stack)
 		head = head->next;
 		free(tmp);
 	}
-	*stack = NULL;
+	free(stack);
 }

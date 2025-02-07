@@ -16,11 +16,11 @@ t_list	*ft_lstnew(int value)
 {
 	t_list	*new;
 
-	new = malloc(sizeof(t_list));
+	new = (t_list *) malloc(sizeof(*new));
 	if (!new)
 		return (NULL);
-	new->content = value;
-	new->index = 0;
+	new->value = value;
+	new->index = -1;
 	new->next = NULL;
 	return (new);
 }

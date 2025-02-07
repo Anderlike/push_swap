@@ -12,8 +12,8 @@
 
 NAME = push_swap
 SOURCES = \
-	./src/push_swap.c ./algo/radix.c ./algo/simple.c \
-	./utils/utils.c ./utils/utils2.c ./src/check.c \
+	./src/main.c ./src/radix.c ./src/simple.c ./src/instructions.c\
+	./utils/utils.c ./utils/check_args.c ./utils/index.c \
 	./steps/push.c ./steps/reverse_rotate.c \
 	./steps/rotate.c ./steps/swap.c
 OBJECTS = $(SOURCES:.c=.o)

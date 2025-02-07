@@ -58,7 +58,7 @@ int					ft_toupper(int c);
 
 typedef struct s_list
 {
-	int				content;
+	int				value;
 	int				index;
 	struct s_list	*next;
 }					t_list;
