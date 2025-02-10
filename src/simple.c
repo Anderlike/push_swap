@@ -6,40 +6,24 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:54:26 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/12 11:01:59 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:57:21 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
 
-static int	get_min(t_list **stack, int val)
-{
-	t_list	*head;
-	int		min;
-
-	head = *stack;
-	min = head->index;
-	while (head->next)
-	{
-		head = head->next;
-		if ((head->index < min) && head->index != val)
-			min = head->index;
-	}
-	return (min);
-}
-
 static void	sort_3_help(t_list **stack_a, t_list *head, int min, int next_min)
 {
-	if (head->value == next_min)
+	if (head->index == next_min)
 	{
-		if (head->next->value == min)
+		if (head->next->index == min)
 			sa(stack_a);
 		else
 			rra(stack_a);
 	}
 	else
 	{
-		if (head->next->value == min)
+		if (head->next->index == min)
 			ra(stack_a);
 		else
 		{
@@ -60,7 +44,7 @@ static void	sort_3(t_list **stack_a)
 	next_min = get_min(stack_a, min);
 	if (is_sorted(stack_a))
 		return ;
-	if (head->value == min && head->next->value != next_min)
+	if (head->index == min && head->next->index != next_min)
 	{
 		sa(stack_a);
 		ra(stack_a);
