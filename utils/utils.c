@@ -6,17 +6,11 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 13:10:29 by aaleixo-          #+#    #+#             */
-/*   Updated: 2025/02/07 13:10:29 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2025/02/10 12:51:17 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
-
-void	ft_error()
-{
-	ft_printf("Error\n");
-	exit(0);
-}
 
 void	ft_free(char **str)
 {

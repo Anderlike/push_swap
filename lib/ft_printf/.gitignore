@@ -1,9 +1,0 @@
-*.o
-*.a
-*.out
-.DS_Store
-.vscode/
-.idea/
-node_modules/
-printfTester/
-printfTester

@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:58:07 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/14 15:20:18 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2025/02/10 12:51:25 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
+
+void	ft_error(void)
+{
+	ft_printf("Error\n");
+	exit(0);
+}
 
 static int	ft_contains(int num, char **argv, int i)
 {
@@ -44,7 +50,7 @@ void	ft_check_args(int argc, char **argv)
 {
 	int		i;
 	long	tmp;
-	char	**args;	
+	char	**args;
 
 	i = 0;
 	if (argc == 2)

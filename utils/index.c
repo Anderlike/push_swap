@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 09:56:19 by aaleixo-          #+#    #+#             */
-/*   Updated: 2024/11/14 16:50:09 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2025/02/10 12:52:40 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
+
+int	get_min(t_list **stack, int val)
+{
+	t_list	*head;
+	int		min;
+
+	head = *stack;
+	min = head->index;
+	while (head->next)
+	{
+		head = head->next;
+		if ((head->index < min) && head->index != val)
+			min = head->index;
+	}
+	return (min);
+}
 
 static t_list	*get_next_min(t_list **stack)
 {
@@ -50,7 +66,7 @@ void	index_stack(t_list **stack)
 	}
 }
 
-void	printList(t_list *head)
+void	print_list(t_list *head)
 {
 	t_list	*tmp;
 
