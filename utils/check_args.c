@@ -54,7 +54,11 @@ void	ft_check_args(int argc, char **argv)
 
 	i = 0;
 	if (argc == 2)
+	{
+		if(!ft_strchr(argv[1], ' '))
+			return;
 		args = ft_split(argv[1], ' ');
+	}
 	else
 	{
 		i = 1;

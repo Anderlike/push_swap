@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 18:56:57 by aaleixo-          #+#    #+#             */
-/*   Updated: 2025/02/11 17:49:09 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:06:07 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	**ft_split(char const *s, char c)
 	char	**result;
 	int		wcount;
 
-	if (!s || !ft_strchr(s, c))
+	if (!s)
 		return (NULL);
 	wcount = word_count(s, c);
 	result = (char **)malloc(sizeof(char *) * (wcount + 1));
