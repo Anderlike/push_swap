@@ -6,21 +6,23 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 13:10:29 by aaleixo-          #+#    #+#             */
-/*   Updated: 2025/02/10 12:51:17 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:17:20 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/push_swap.h"
 
-void	ft_free(char **str)
+void	ft_free(char **args)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (args[i])
+	{
+		free(args[i]);
 		i++;
-	while (i >= 0)
-		free(str[i--]);
+	}
+	free(args);
 }
 
 int	is_sorted(t_list **stack)

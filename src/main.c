@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:47:17 by aaleixo-          #+#    #+#             */
-/*   Updated: 2025/02/10 12:53:58 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:21:16 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static void	init_stack(t_list **stack, int argc, char **argv)
 	i = 0;
 	if (argc == 2)
 	{
-		if(!ft_strchr(argv[1], ' '))
-			return;
+		if (!ft_strchr(argv[1], ' '))
+			return ;
 		args = ft_split(argv[1], ' ');
 	}
 	else

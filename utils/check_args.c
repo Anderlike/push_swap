@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:58:07 by aaleixo-          #+#    #+#             */
-/*   Updated: 2025/02/10 12:51:25 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:16:36 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,11 @@ static int	ft_isnum(char *num)
 void	ft_check_args(int argc, char **argv)
 {
 	int		i;
-	long	tmp;
 	char	**args;
 
 	i = 0;
 	if (argc == 2)
 	{
-		if(!ft_strchr(argv[1], ' '))
-			return;
 		args = ft_split(argv[1], ' ');
 	}
 	else
@@ -66,13 +63,12 @@ void	ft_check_args(int argc, char **argv)
 	}
 	while (args[i])
 	{
-		tmp = ft_atoi(args[i]);
-		if (!ft_isnum(args[i]))
+		if (!ft_isnum(args[i]) || ft_contains(ft_atoi(args[i]), args, i)
+			|| ((ft_atoi(args[i]) < INT_MIN || ft_atoi(args[i]) > INT_MAX)))
+		{
+			ft_free(args);
 			ft_error();
-		if (ft_contains(tmp, args, i))
-			ft_error();
-		if (tmp < -2147483648 || tmp > 2147483647)
-			ft_error();
+		}
 		i++;
 	}
 	if (argc == 2)
