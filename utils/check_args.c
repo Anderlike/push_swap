@@ -6,7 +6,7 @@
 /*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:58:07 by aaleixo-          #+#    #+#             */
-/*   Updated: 2025/02/17 17:52:08 by aaleixo-         ###   ########.fr       */
+/*   Updated: 2025/02/21 13:26:25 by aaleixo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static int	ft_isnum(char *num)
 	i = 0;
 	if (num[0] == '-')
 		i++;
+	if ((!(num[1] >= '1' && num[1] <= '9')) && num[0] == '-')
+		return (0);
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
